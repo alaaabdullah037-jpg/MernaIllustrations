@@ -834,6 +834,19 @@ body{
 }
 
 
+@media (max-width: 768px) {
+  .story-summary-section {
+    width: 100%;
+    padding: 0 20px; /* يعطي مساحة أمان يمين وشمال */
+    box-sizing: border-box; /* يضمن إن الـ padding ما يزودش حجم العنصر */
+  }
+
+  .story-summary-section p {
+    white-space: normal; /* يجبر النص ينزل سطر جديد */
+    word-break: break-word;
+  }
+}
+
 
 
 
@@ -933,29 +946,55 @@ body{
     display: block;
 }
 
+/* كود شامل لإصلاح شاشات الموبايل في كل الصفحات */
+@media (max-width: 768px) {
+  
+  /* 1. حل مشكلة الصور الكبيرة والبنرات اللي بتطرد الكلام برة الشاشة */
+  img, .hero-section, .banner, [class*="banner"], [class*="hero"] { 
+    max-width: 100% !important;
+    height: auto !important;
+    box-sizing: border-box;
+  }
 
+  /* 2. تصغير الخطوط الكبيرة جداً (زي كلمة GRAPHIC) عشان متخرجش برة الشاشة */
+  h1, h2, .main-title, [class*="title"], [class*="text"] { 
+    font-size: 26px !important; 
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
 
+  /* 3. تظبيط السلايدر والكروت عشان الكارت الشمال يرجع يظهر والكلام مياكلش */
+  .slider-container, [class*="slider"], [class*="container"] {
+    overflow-x: auto !important; 
+    display: flex !important;
+    justify-content: flex-start !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
 
-@media (max-width:768px){
+  .card, [class*="card"] {
+    min-width: 85% !important; /* يجبر الكارت يظهر كامل في نص الشاشة */
+    margin: 0 10px !important;
+  }
 
-    .gallery{
-        grid-template-columns:1fr;
-    }
+  /* 4. حل مشكلة نصوص الـ Story Summary عشان تنزل سطر جديد */
+  p, .story-summary-section, [class*="summary"] {
+    white-space: normal !important;
+    word-break: break-word !important;
+  }
+}
 
-    .gallery img{
-        height:250px;
-    }
+@media (max-width: 768px) {
+  /* لجعل جميع الصور مرنة ولا تخرج عن الشاشة */
+  img, .hero-section, .banner { 
+    max-width: 100%;
+    height: auto;
+  }
 
-    .story-image img{
-        height:320px;
-    }
-
-    .story-content h2{
-        font-size:28px;
-    }
-
-    .story-content p{
-        font-size:16px;
-    }
-
+  /* تصغير حجم الخطوط الكبيرة اللي مسببة اختفاء الكلام */
+  h1, .hero-text, .graphic-title { 
+    font-size: 24px ; 
+    word-wrap: break-word; 
+  }
 }
