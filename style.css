@@ -661,6 +661,36 @@ body{
 
 }
 
+
+
+
+
+/* الحاوية أو الكارت الخاص بالصورة */
+.product-card {
+    background-color: #f9f9f9; /* خلفية هادئة وقريبة من الأبيض */
+    border-radius: 16px;       /* حواف ناعمة جداً للكارت */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* ظل خفيف وغير مزعج يعطي عمق احترافي */
+    padding: 10px;             /* مسافة داخلية صغيرة لحماية أبعاد الصورة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;          /* يضمن عدم خروج أي شيء عن الحواف الناعمة */
+}
+
+/* تنسيق الصورة نفسها بداخل الكارت */
+.product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;         /* يمكنك التحكم في أقصى ارتفاع مناسب لتصميمك */
+    object-fit: contain;       /* السحر هنا: يعرض الصورة كاملة تماماً بدون أي قص */
+    border-radius: 12px;       /* يعطي حواف ناعمة للصورة نفسها لتتماشى مع الكارت */
+    transition: transform 0.3s ease; /* تأثير ناعم عند مرور الماوس */
+}
+
+/* حركة احترافية تفاعلية عند مرور الماوس (Hover) */
+.product-card:hover img {
+    transform: scale(1.02);    /* تكبير بسيط جداً يعطي إيحاء بالفخامة */
+}
 /*================== BUTTON ==================*/
 
 .buy-btn{
@@ -974,8 +1004,11 @@ body{
   }
 
   .card, [class*="card"] {
-    min-width: 85% !important; /* يجبر الكارت يظهر كامل في نص الشاشة */
-    margin: 0 10px !important;
+    flex: 0 0 70% !important;
+    min-width: 70% !important; /* يجبر الكارت يظهر كامل في نص الشاشة */
+    margin: 0 5px !important;
+    scroll-snap-align: center;
+
   }
 
   /* 4. حل مشكلة نصوص الـ Story Summary عشان تنزل سطر جديد */
@@ -983,6 +1016,13 @@ body{
     white-space: normal !important;
     word-break: break-word !important;
   }
+
+  /* تنسيق الصور داخل كروت الموبايل لضمان عدم القص */
+.product-card img, .card img {
+    max-height: 200px !important;
+    object-fit: contain !important;
+    border-radius: 12px !important;
+}
 }
 
 @media (max-width: 768px) {
