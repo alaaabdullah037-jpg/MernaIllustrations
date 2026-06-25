@@ -297,6 +297,10 @@ footer h3{
     overflow:hidden;
     box-shadow:0 5px 20px rgba(0,0,0,.1);
     transition:.3s;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card:hover{
@@ -355,6 +359,34 @@ footer h3{
 
 }
 
+
+/* ضبط الموبايل وحذف الفراغات البشعة */
+@media (max-width: 480px) {
+    
+    /* 1. نصغر عرض الكارد ونخليه يلم الطول الزيادة */
+    .card {
+        max-width: 280px !important; /* يمنع الكارد إنه يعرض بزيادة */
+        height: auto !important;     /* يخلي الطول يتحدد على قد المحتوى بالظبط */
+        min-height: unset !important; /* يلغي أي طول أدنى قديم */
+        margin: 0 auto 25px auto !important; /* يوسط الكارد في نص الشاشة */
+        padding-bottom: 10px !important; /* مسافة صغيرة جداً تحت */
+    }
+
+    /* 2. نتحكم في حجم الصور جوه السلايدر */
+    .card img {
+        width: 100% !important;
+        height: 320px !important; /* طول مناسب جداً يظهر الرسمة العمودية كاملة */
+        object-fit: contain !important; /* يحافظ على أبعاد الرسمة كاملة بدون أي قص */
+        background-color: #fcfcfc; /* لون خلفية خفيف لو فيه فروقات بسيطة */
+    }
+    
+    /* 3. اختياري: تصغير حجم الأسهم شوية عشان تليق مع الموبايل */
+    .card .swiper-button-next, 
+    .card .swiper-button-prev,
+    .card .slider-btn { /* حطي كلاس السهم بتاعك هنا لو الحجم كبير */
+        transform: scale(0.8); 
+    }
+}
 
 
 
