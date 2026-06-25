@@ -107,7 +107,7 @@ body{
 /* About */
 
 .about{
-    padding:100px 8%;
+    padding:40px 5%;
 }
 
 .about h2{
@@ -120,8 +120,10 @@ body{
 .about-container{
     display:flex;
     align-items:center;
-    gap:50px;
+    justify-content: center;
+    gap:20px;
     flex-wrap:wrap;
+    width: 100%;
 }
 
 .about-image{
